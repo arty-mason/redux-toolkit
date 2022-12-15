@@ -1,3 +1,8 @@
 .App {
   text-align: center;
 }
+
+input:checked + span {
+  text-decoration: line-through;
+  color: green;
+}
