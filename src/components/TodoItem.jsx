@@ -1,28 +1,18 @@
-import React from "react";
+import { useDispatch } from "react-redux";
+import { toggleComplete, removeTodo } from "../store/todoSlice";
 
-const TodoItem = ({ id, text, completed, removeTodo, toggleTodoCompleted }) => {
+const TodoItem = ({ id, text, completed }) => {
+  const dispatch = useDispatch();
+
   return (
-    <li
-      key={id}
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
+    <li>
       <input
         type="checkbox"
         checked={completed}
-        onChange={() => toggleTodoCompleted(id)}
+        onChange={() => dispatch(toggleComplete({ id }))}
       />
       <span>{text}</span>
-      <button
-        style={{ color: "red", margin: "5px", cursor: "pointer" }}
-        on
-        onClick={() => removeTodo(id)}
-      >
-        Delete
-      </button>
+      <span onClick={() => dispatch(removeTodo({ id }))}>&times;</span>
     </li>
   );
 };
