@@ -2,6 +2,18 @@
   text-align: center;
 }
 
+li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  color: red;
+  margin: 5px;
+  cursor: pointer;
+}
+
 input:checked + span {
   text-decoration: line-through;
   color: green;
